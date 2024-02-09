@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-This repository is a template (or "base") for Miners Online projects. In addition this repository.
+A Minecraft mod (that will) add realistic computers using VNC.
 
 ## Using this template
 

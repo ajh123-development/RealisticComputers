@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "realistic_computers",
+	"version": "${version}",
+	"name": "Realistic Computers",
+	"description": "Adds realistic computers using VNC.",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://github.com/ajh123-development/RealisticComputers",
+		"sources": "https://github.com/ajh123-development/RealisticComputers"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/realistic_computers/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"uk.minersonline.RealisticComputers.RealisticComputers"
+		],
+		"client": [
+			"uk.minersonline.RealisticComputers.RealisticComputersClient"
+		]
+	},
+	"mixins": [
+		"realistic_computers.mixins.json",
+		{
+			"config": "realistic_computers.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.0",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
