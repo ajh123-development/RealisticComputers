@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "facing=north": { "model": "realistic_computers:block/vnc_terminal" },
+    "facing=east":  { "model": "realistic_computers:block/vnc_terminal", "y":  90 },
+    "facing=south": { "model": "realistic_computers:block/vnc_terminal", "y": 180 },
+    "facing=west":  { "model": "realistic_computers:block/vnc_terminal", "y": 270 }
+  }
+}
+
