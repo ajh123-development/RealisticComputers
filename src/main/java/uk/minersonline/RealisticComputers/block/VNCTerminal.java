@@ -1,16 +1,26 @@
 package uk.minersonline.RealisticComputers.block;
 
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import uk.minersonline.RealisticComputers.ModNetworking;
 
 public class VNCTerminal extends HorizontalFacingBlock implements BlockEntityProvider {
 	public VNCTerminal(Settings settings) {
@@ -47,5 +57,16 @@ public class VNCTerminal extends HorizontalFacingBlock implements BlockEntityPro
 	@Override
 	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
 		return new VNCTerminalBlockEntity(pos, state);
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+		if (!world.isClient()) {
+			PacketByteBuf buf = PacketByteBufs.create();
+			buf.writeBlockPos(pos);
+			ServerPlayNetworking.send((ServerPlayerEntity) player, ModNetworking.OPEN_VNC_SCREEN, buf);
+		}
+		return ActionResult.SUCCESS;
 	}
 }

@@ -1,4 +1,5 @@
 {
   "realistic_computers.main_group": "Realistic Computers",
-  "block.realistic_computers.vnc_terminal": "VNC Terminal"
+  "block.realistic_computers.vnc_terminal": "VNC Terminal",
+  "screen.realistic_computers.vnc_terminal": "VNC Terminal"
 }
