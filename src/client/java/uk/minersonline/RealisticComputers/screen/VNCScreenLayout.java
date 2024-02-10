@@ -16,11 +16,11 @@ import net.minecraft.util.math.BlockPos;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class VNCScreen extends LightweightGuiDescription {
+public class VNCScreenLayout extends LightweightGuiDescription {
 	private final VernacularConfig config = new VernacularConfig();
 	private final VernacularClient client = new VernacularClient(config);
 
-	public VNCScreen(Screen parent, BlockPos terminalPosition) {
+	public VNCScreenLayout(Screen parent, BlockPos terminalPosition) {
 		WGridPanel root = new WGridPanel();
 		setRootPanel(root);
 		root.setSize(272, 176);
