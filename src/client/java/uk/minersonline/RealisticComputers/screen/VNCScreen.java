@@ -25,7 +25,7 @@ public class VNCScreen extends CottonClientScreen {
 			this.client.setScreen(this.parent);
 			PacketByteBuf buf = PacketByteBufs.create();
 			buf.writeBlockPos(this.terminalPosition);
-			ClientPlayNetworking.send(ModNetworking.CLOSE_VNC_SCREEN, buf);
+			ClientPlayNetworking.send(ModNetworking.VNC_SCREEN_CLOSE, buf);
 		}
 	}
 

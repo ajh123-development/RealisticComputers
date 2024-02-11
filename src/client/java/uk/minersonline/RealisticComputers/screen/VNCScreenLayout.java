@@ -15,6 +15,7 @@ public class VNCScreenLayout extends LightweightGuiDescription {
 
 		screenWidget = new VNCScreenWidget();
 		root.add(screenWidget, 0, 0, 19, 12);
+		requestFocus(screenWidget);
 
 		root.validate(this);
 	}

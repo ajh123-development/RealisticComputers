@@ -10,6 +10,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import uk.minersonline.RealisticComputers.utils.ImageUtils;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 public class VNCSession extends Thread {
@@ -58,5 +59,18 @@ public class VNCSession extends Thread {
 	public void end() {
 		client.stop();
 		running = false;
+	}
+
+	public void sendMousePos(int x, int y) {
+		client.moveMouse(x, y);
+	}
+
+	public void sendMouseClick(int x, int y, int btn, boolean pressed) {
+		client.moveMouse(x, y);
+		client.updateMouseButton(btn, pressed);
+	}
+
+	public void handleKey(KeyEvent event) {
+		client.handleKeyEvent(event);
 	}
 }

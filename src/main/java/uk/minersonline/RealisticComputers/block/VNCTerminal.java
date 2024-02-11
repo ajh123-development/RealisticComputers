@@ -67,7 +67,7 @@ public class VNCTerminal extends HorizontalFacingBlock implements BlockEntityPro
 		if (!world.isClient()) {
 			PacketByteBuf buf = PacketByteBufs.create();
 			buf.writeBlockPos(pos);
-			ServerPlayNetworking.send((ServerPlayerEntity) player, ModNetworking.OPEN_VNC_SCREEN, buf);
+			ServerPlayNetworking.send((ServerPlayerEntity) player, ModNetworking.VNC_SCREEN_OPEN, buf);
 			ModNetworking.openScreens.put((ServerPlayerEntity) player, pos);
 			VNCSession session = new VNCSession((ServerPlayerEntity) player);
 			session.start();

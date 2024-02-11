@@ -14,7 +14,7 @@ import java.io.IOException;
 public class RealisticComputersClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		ClientPlayNetworking.registerGlobalReceiver(ModNetworking.OPEN_VNC_SCREEN, (client, handler, buf, responseSender) -> {
+		ClientPlayNetworking.registerGlobalReceiver(ModNetworking.VNC_SCREEN_OPEN, (client, handler, buf, responseSender) -> {
 			BlockPos terminalPosition = buf.readBlockPos();
 
 			client.execute(() -> {
