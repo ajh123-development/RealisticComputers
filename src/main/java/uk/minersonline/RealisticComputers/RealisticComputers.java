@@ -29,5 +29,6 @@ public class RealisticComputers implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		ModBlocks.init();
 		Registry.register(Registries.ITEM_GROUP, new Identifier(MOD_ID, "main_group"), ITEM_GROUP);
+		ModNetworking.serverInit();
 	}
 }

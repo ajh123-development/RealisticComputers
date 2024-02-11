@@ -21,6 +21,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import uk.minersonline.RealisticComputers.ModNetworking;
+import uk.minersonline.RealisticComputers.RealisticComputers;
+import uk.minersonline.RealisticComputers.VNCSession;
 
 public class VNCTerminal extends HorizontalFacingBlock implements BlockEntityProvider {
 	public VNCTerminal(Settings settings) {
@@ -66,6 +68,11 @@ public class VNCTerminal extends HorizontalFacingBlock implements BlockEntityPro
 			PacketByteBuf buf = PacketByteBufs.create();
 			buf.writeBlockPos(pos);
 			ServerPlayNetworking.send((ServerPlayerEntity) player, ModNetworking.OPEN_VNC_SCREEN, buf);
+			ModNetworking.openScreens.put((ServerPlayerEntity) player, pos);
+			VNCSession session = new VNCSession((ServerPlayerEntity) player);
+			session.start();
+			ModNetworking.openSessions.put((ServerPlayerEntity) player, session);
+			RealisticComputers.LOGGER.info(player.getDisplayName().getString() + " has opened the vnc terminal at " + pos);
 		}
 		return ActionResult.SUCCESS;
 	}
