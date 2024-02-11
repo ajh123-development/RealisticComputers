@@ -5,7 +5,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.util.math.BlockPos;
 import uk.minersonline.RealisticComputers.screen.VNCScreen;
-import uk.minersonline.RealisticComputers.screen.WImageWidget;
+import uk.minersonline.RealisticComputers.screen.VNCScreenWidget;
 import uk.minersonline.RealisticComputers.utils.ClientImageUtils;
 import uk.minersonline.RealisticComputers.utils.ImageUtils;
 
@@ -29,7 +29,7 @@ public class RealisticComputersClient implements ClientModInitializer {
 			client.execute(() -> {
 				if (client.currentScreen instanceof VNCScreen screen) {
 					try {
-						WImageWidget image = screen.getDescription().getImage();
+						VNCScreenWidget image = screen.getDescription().getImage();
 						Texture texture = ClientImageUtils.convertImageToTexture(ImageUtils.convertBytesToImage(imageData));
 						image.setImage(texture);
 					} catch (IOException e) {
